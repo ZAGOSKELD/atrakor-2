@@ -29,9 +29,9 @@
 		if("amber")
 			return "#d99f3a"
 		if("ourple")
-			return "#d99f3a"
+			return "#945d9b"
 		if("redder")
-			return "#7d393d"
+			return "#b73737"
 
 /proc/random_hair_color()
 	var/static/list/natural_hair_colors = list(
