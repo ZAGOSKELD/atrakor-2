@@ -417,6 +417,7 @@
 #include "code\__DEFINES\traits\declarations.dm"
 #include "code\__DEFINES\traits\macros.dm"
 #include "code\__DEFINES\traits\sources.dm"
+#include "code\__DEFINES\~atrakor_defines\mobs.dm"
 #include "code\__DEFINES\~doppler_defines\access.dm"
 #include "code\__DEFINES\~doppler_defines\admin.dm"
 #include "code\__DEFINES\~doppler_defines\armor_defines.dm"
