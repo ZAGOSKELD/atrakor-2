@@ -42,7 +42,7 @@
 
 // armor vest
 
-/obj/item/clothing/suit/armor/tajaran
+/obj/item/clothing/armor_slot/tajaran
 	name = "\improper Tajaran plate"
 	desc = "Full upper body plate armor, made of exceptional modern material and decorated extensively. No one set of plate \
 		looks the same as another, and the value of each set is measured in not only it's material, but also a complete \
@@ -52,8 +52,9 @@
 	worn_icon = 'modular_doppler/species_clothes/icons/tajara/gear_worn.dmi'
 	worn_icon_state = "armor"
 	supported_bodyshapes = null
+	armor_type = /datum/armor/colonist_armor
 
-/obj/item/clothing/suit/armor/tajaran/gold
+/obj/item/clothing/armor_slot/tajaran/gold
 	name = "\improper Tajaran high plate"
 	desc = "Full upper body plate armor, made of exceptional modern material and decorated extensively. No one set of plate \
 		looks the same as another, and the value of each set is measured in not only it's material, but also a complete \
@@ -62,7 +63,7 @@
 	icon_state = "armor_high"
 	worn_icon_state = "armor_high"
 
-/obj/item/clothing/suit/armor/vulp
+/obj/item/clothing/armor_slot/vulp
 	name = "\improper Vulpkanin skirmisher armor"
 	desc = "Beautiful in function, a heavy set of Vulpkanin armor is never identical to another set in overall design. \
 		Much like the crab, each set is a completely different design of armor that has evolved to a similar point, each \
@@ -72,6 +73,7 @@
 	worn_icon = 'modular_doppler/species_clothes/icons/vulp/gear_worn.dmi'
 	worn_icon_state = "armor"
 	supported_bodyshapes = null
+	armor_type = /datum/armor/colonist_armor
 
 // leg armor
 

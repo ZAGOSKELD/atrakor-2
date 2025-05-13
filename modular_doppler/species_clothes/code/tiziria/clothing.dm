@@ -51,7 +51,7 @@
 
 // ear tag
 
-/obj/item/clothing/accessory/ear_tag
+/obj/item/clothing/ears/ear_tag
 	name = "ear tag"
 	desc = "A an old Tizirian ear tag, or at least a replica of one. These are a relic of a long gone era \
 		where obligate soldiers of the empire (previously lovingly called levies) would have a tag such as this \
@@ -64,7 +64,6 @@
 	righthand_file = 'modular_doppler/species_clothes/icons/generic/righthand.dmi'
 	inhand_icon_state = null
 	alternate_worn_layer = HANDCUFF_LAYER // above hats for visibility
-	attachment_slot = NONE
 
 // neck capes
 

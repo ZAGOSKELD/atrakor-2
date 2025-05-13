@@ -1,0 +1,2 @@
+#define MAX_HEALTH_REAL 150
+#define MAX_STAMINA_REAL 170

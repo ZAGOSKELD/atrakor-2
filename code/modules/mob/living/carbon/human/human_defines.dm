@@ -69,6 +69,9 @@
 	var/obj/item/r_store = null
 	var/obj/item/l_store = null
 	var/obj/item/s_store = null
+	var/obj/item/chest_store = null
+	var/obj/item/spec_store = null
+	var/obj/item/clothing/armor_slot = null
 
 	var/special_voice = "" // For changing our voice. Used by a symptom.
 

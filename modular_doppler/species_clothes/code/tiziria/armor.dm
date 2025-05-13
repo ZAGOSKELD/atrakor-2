@@ -45,7 +45,7 @@
 
 // armor vest
 
-/obj/item/clothing/suit/armor/lizard
+/obj/item/clothing/armor_slot/lizard
 	name = "\improper Tizirian breastplate"
 	desc = "An important aspect of Tizirian childhood, or rather, the end of it. A thick breastplate supported at \
 		the shoulders and midsection by armored scales. Each citizen of the empire recieves one as part of their \
@@ -55,6 +55,7 @@
 	worn_icon = 'modular_doppler/species_clothes/icons/tiziria/gear_worn.dmi'
 	worn_icon_state = "armor"
 	supported_bodyshapes = null
+	armor_type = /datum/armor/colonist_armor
 
 // leg armor
 

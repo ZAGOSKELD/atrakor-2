@@ -674,12 +674,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 					return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_BELT)
-			var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_CHEST)
-
-			if(!H.w_uniform && !HAS_TRAIT(H, TRAIT_NO_JUMPSUIT) && (!O || IS_ORGANIC_LIMB(O)))
-				if(!disable_warning)
-					to_chat(H, span_warning("You need a jumpsuit before you can attach this [I.name]!"))
-				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_BELTPACK)
 			if(H.belt && H.belt.atom_storage?.can_insert(I, H, messages = TRUE, force = indirect_action ? STORAGE_SOFT_LOCKED : STORAGE_NOT_LOCKED))
@@ -714,25 +708,11 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				return FALSE
 			if(!isnull(H.l_store) && H.l_store != I) // no pocket swaps at all
 				return FALSE
-
-			var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_L_LEG)
-
-			if(!H.w_uniform && !HAS_TRAIT(H, TRAIT_NO_JUMPSUIT) && (!O || IS_ORGANIC_LIMB(O)))
-				if(!disable_warning)
-					to_chat(H, span_warning("You need a jumpsuit before you can attach this [I.name]!"))
-				return FALSE
 			return TRUE
 		if(ITEM_SLOT_RPOCKET)
 			if(HAS_TRAIT(I, TRAIT_NODROP))
 				return FALSE
 			if(!isnull(H.r_store) && H.r_store != I)
-				return FALSE
-
-			var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_R_LEG)
-
-			if(!H.w_uniform && !HAS_TRAIT(H, TRAIT_NO_JUMPSUIT) && (!O || IS_ORGANIC_LIMB(O)))
-				if(!disable_warning)
-					to_chat(H, span_warning("You need a jumpsuit before you can attach this [I.name]!"))
 				return FALSE
 			return TRUE
 		if(ITEM_SLOT_SUITSTORE)
@@ -756,19 +736,25 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		if(ITEM_SLOT_HANDCUFFED)
 			if(!istype(I, /obj/item/restraints/handcuffs))
 				return FALSE
-			if(H.num_hands < 2)
+			if(H.num_hands < 1)
 				return FALSE
 			return TRUE
 		if(ITEM_SLOT_LEGCUFFED)
 			if(!istype(I, /obj/item/restraints/legcuffs))
 				return FALSE
-			if(H.num_legs < 2)
+			if(H.num_legs < 1)
 				return FALSE
 			return TRUE
 		if(ITEM_SLOT_BACKPACK)
 			if(H.back && H.back.atom_storage?.can_insert(I, H, messages = TRUE, force = indirect_action ? STORAGE_SOFT_LOCKED : STORAGE_NOT_LOCKED))
 				return TRUE
 			return FALSE
+		if(ITEM_SLOT_ARMOR)
+			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		if(ITEM_SLOT_SPEC_STORAGE)
+			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		if(ITEM_SLOT_CHEST_STORAGE)
+			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 	return FALSE //Unsupported slot
 
 /datum/species/proc/equip_delay_self_check(obj/item/I, mob/living/carbon/human/H, bypass_equip_delay_self)

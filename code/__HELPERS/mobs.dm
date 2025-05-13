@@ -21,23 +21,17 @@
 		)))
 
 /proc/random_eye_color()
-	switch(pick(20;"brown",20;"hazel",20;"grey",15;"blue",15;"green",1;"amber",1;"albino"))
-		if("brown")
-			return COLOR_BROWNER_BROWN
-		if("hazel")
-			return "#554422"
-		if("grey")
-			return pick("#666666","#777777","#888888","#999999","#aaaaaa","#bbbbbb","#cccccc")
-		if("blue")
-			return "#3366cc"
-		if("green")
-			return "#006600"
+	switch(pick(20;"neon",20;"jade",20;"amber",20;"ourple",20;"redder"))
+		if("neon")
+			return "#c4f0c2"
+		if("jade")
+			return "#5ab9a8"
 		if("amber")
-			return "#ffcc00"
-		if("albino")
-			return "#" + pick("cc","dd","ee","ff") + pick("00","11","22","33","44","55","66","77","88","99") + pick("00","11","22","33","44","55","66","77","88","99")
-		else
-			return COLOR_BLACK
+			return "#d99f3a"
+		if("ourple")
+			return "#945d9b"
+		if("redder")
+			return "#b73737"
 
 /proc/random_hair_color()
 	var/static/list/natural_hair_colors = list(
@@ -712,6 +706,12 @@ GLOBAL_LIST_INIT(skin_tone_names, list(
 		slot_strings += "backpack"
 	if(slot_flags & ITEM_SLOT_BELTPACK)
 		slot_strings += "belt" // ?
+	if(slot_flags & ITEM_SLOT_ARMOR)
+		slot_strings += "armor"
+	if(slot_flags & ITEM_SLOT_SPEC_STORAGE)
+		slot_strings += "special storage"
+	if(slot_flags & ITEM_SLOT_CHEST_STORAGE)
+		slot_strings += "chest rig"
 	return slot_strings
 
 ///Returns the direction that the initiator and the target are facing

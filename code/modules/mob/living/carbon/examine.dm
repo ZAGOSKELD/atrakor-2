@@ -495,6 +495,12 @@
 		//suit/armor storage
 		if(s_store && !(obscured & ITEM_SLOT_SUITSTORE) && !HAS_TRAIT(s_store, TRAIT_EXAMINE_SKIP))
 			. += "[t_He] [t_is] carrying [s_store.examine_title_worn(user)] on [t_his] [wear_suit.name]."
+	//armor slot
+	if(armor_slot && !(obscured & ITEM_SLOT_ARMOR) && !HAS_TRAIT(armor_slot, TRAIT_EXAMINE_SKIP))
+		. += "[t_He] [t_is] wearing [armor_slot.examine_title_worn(user)]."
+	//spec storage
+	if(spec_store && !(obscured & ITEM_SLOT_SPEC_STORAGE) && !HAS_TRAIT(spec_store, TRAIT_EXAMINE_SKIP))
+		. += "[t_He] [t_is] wearing [spec_store.examine_title_worn(user)]."
 	//back
 	if(back && !HAS_TRAIT(back, TRAIT_EXAMINE_SKIP))
 		. += "[t_He] [t_has] [back.examine_title_worn(user)] on [t_his] back."
@@ -525,10 +531,14 @@
 	//belt
 	if(belt && !(obscured & ITEM_SLOT_BELT) && !HAS_TRAIT(belt, TRAIT_EXAMINE_SKIP))
 		. += "[t_He] [t_has] [belt.examine_title_worn(user)] about [t_his] waist."
+	//chest storage
+	if(chest_store && !(obscured & ITEM_SLOT_CHEST_STORAGE) && !HAS_TRAIT(chest_store, TRAIT_EXAMINE_SKIP))
+		. += "[t_He] [t_is] wearing [chest_store.examine_title_worn(user)]."
 	//shoes
 	if(shoes && !(obscured & ITEM_SLOT_FEET)  && !HAS_TRAIT(shoes, TRAIT_EXAMINE_SKIP))
 		. += "[t_He] [t_is] wearing [shoes.examine_title_worn(user)] on [t_his] feet."
 // DOPPLER EDIT END
+
 
 /// Collects info displayed about any HUDs the user has when examining src
 /mob/living/carbon/proc/get_hud_examine_info(mob/living/user)

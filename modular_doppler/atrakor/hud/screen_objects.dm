@@ -72,7 +72,7 @@
 	if(user.health <= HEALTH_THRESHOLD_CRIT)
 		icon_state = "health_crit"
 		return ..()
-	var/number_of_bars = ceil(user.health / (MAX_LIVING_HEALTH / 14)) // 14 bars in the thing
+	var/number_of_bars = ceil(user.health / (MAX_HEALTH_REAL / 14)) // 14 bars in the thing
 	icon_state = "health_[number_of_bars]"
 	return ..()
 
@@ -89,6 +89,6 @@
 	if(shown_stamina_loss >= HEALTH_THRESHOLD_CRIT)
 		icon_state = "stam_crit"
 		return ..()
-	var/number_of_bars = min(1, ceil((MAX_LIVING_HEALTH - shown_stamina_loss) / (MAX_LIVING_HEALTH / 14))) // 14 bars in the thing
+	var/number_of_bars = min(1, ceil((MAX_STAMINA_REAL - shown_stamina_loss) / (MAX_STAMINA_REAL / 14))) // 14 bars in the thing
 	icon_state = "stam_[number_of_bars]"
 	return ..()

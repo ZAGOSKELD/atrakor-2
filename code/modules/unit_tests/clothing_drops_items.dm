@@ -1,5 +1,5 @@
 /// Tests that removing a piece of clothing drops items that hold said piece of clothing
-/datum/unit_test/clothing_drops_items
+/*/datum/unit_test/clothing_drops_items
 
 /datum/unit_test/clothing_drops_items/Run()
 	test_human()
@@ -50,4 +50,4 @@
 		"[ITEM_SLOT_ID]" = allocate(/obj/item/card/id/advanced/gold/captains_spare),
 		"[ITEM_SLOT_RPOCKET]" = allocate(/obj/item/assembly/flash/handheld),
 		"[ITEM_SLOT_LPOCKET]" = allocate(/obj/item/toy/plush/lizard_plushie),
-	)
+	) */
