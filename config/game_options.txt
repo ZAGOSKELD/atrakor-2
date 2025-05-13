@@ -389,9 +389,9 @@ SILICON_MAX_LAW_AMOUNT 12
 #ROUNDSTART_RACES golem
 
 ## Atrakor Species
-ROUNDSTART_SPECIES tizirian
-ROUNDSTART_SPECIES tajaran
-ROUNDSTART_SPECIES vulpkanin
+ROUNDSTART_RACES tizirian
+ROUNDSTART_RACES tajaran
+ROUNDSTART_RACES vulpkanin
 
 ##-------------------------------------------------------------------------------------------
 
