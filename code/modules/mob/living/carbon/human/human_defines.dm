@@ -70,7 +70,6 @@
 	var/obj/item/l_store = null
 	var/obj/item/s_store = null
 	var/obj/item/chest_store = null
-	var/obj/item/belt_store = null
 	var/obj/item/spec_store = null
 	var/obj/item/clothing/armor_slot = null
 

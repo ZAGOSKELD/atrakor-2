@@ -45,6 +45,12 @@
 			return r_store
 		if(ITEM_SLOT_SUITSTORE)
 			return s_store
+		if(ITEM_SLOT_ARMOR)
+			return armor_slot
+		if(ITEM_SLOT_SPEC_STORAGE)
+			return spec_store
+		if(ITEM_SLOT_CHEST_STORAGE)
+			return chest_store
 
 	return ..()
 
@@ -213,16 +219,11 @@
 				return
 			spec_store = equipping
 			update_worn_spec_store()
-		if(ITEM_SLOT_BELT_STORAGE)
-			if(belt_store)
-				return
-			belt_store = equipping
-			update_hud_belt_store(belt_store)
 		if(ITEM_SLOT_CHEST_STORAGE)
 			if(chest_store)
 				return
 			chest_store = equipping
-			update_hud_chest_store(chest_store)
+			update_worn_chest_store()
 		else
 			to_chat(src, span_danger("You are trying to equip this item to an unsupported inventory slot. Report this to a coder!"))
 
@@ -309,6 +310,18 @@
 		s_store = null
 		if(!QDELETED(src))
 			update_suit_storage()
+	else if(I == armor_slot)
+		armor_slot = null
+		if(!QDELETED(src))
+			update_worn_armor()
+	else if(I == spec_store)
+		spec_store = null
+		if(!QDELETED(src))
+			update_worn_spec_store()
+	else if(I == chest_store)
+		chest_store = null
+		if(!QDELETED(src))
+			update_worn_chest_store()
 	else
 		not_handled = TRUE
 

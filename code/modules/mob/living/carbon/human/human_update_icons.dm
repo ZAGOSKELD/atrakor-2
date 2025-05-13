@@ -682,6 +682,35 @@ There are several things that need to be remembered:
 		overlays_standing[SPEC_STORE_LAYER] = back_overlay
 	apply_overlay(SPEC_STORE_LAYER)
 
+/mob/living/carbon/human/proc/update_worn_chest_store(update_obscured = TRUE)
+	remove_overlay(SPEC_STORE_LAYER)
+
+	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_CHEST_STORAGE) + 1])
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_CHEST_STORAGE) + 1]
+		inv.update_icon()
+
+	if(chest_store)
+		var/obj/item/worn_item = chest_store
+		var/mutable_appearance/back_overlay
+		update_hud_chest_store(worn_item)
+
+		if(update_obscured)
+			update_obscured_slots(worn_item.flags_inv)
+
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON))
+			return
+
+		var/icon_file = 'icons/mob/clothing/back.dmi'
+
+		back_overlay = chest_store.build_worn_icon(default_layer = SPEC_STORE_LAYER, default_icon_file = icon_file)
+
+		if(!back_overlay)
+			return
+		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
+		my_chest?.worn_back_offset?.apply_offset(back_overlay)
+		overlays_standing[SPEC_STORE_LAYER] = back_overlay
+	apply_overlay(SPEC_STORE_LAYER)
+
 /mob/living/carbon/human/get_held_overlays()
 	var/list/hands = list()
 	// DOPPLER EDIT START
@@ -982,12 +1011,6 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/update_hud_special_store(obj/item/worn_item)
 	worn_item.screen_loc = "LEFT+0:16,SOUTH+5:16"
-	if(client && hud_used?.hud_shown)
-		client.screen += worn_item
-	update_observer_view(worn_item, inventory = TRUE)
-
-/mob/living/carbon/human/update_hud_belt_store(obj/item/worn_item)
-	worn_item.screen_loc = "LEFT+0:16,SOUTH+7:16"
 	if(client && hud_used?.hud_shown)
 		client.screen += worn_item
 	update_observer_view(worn_item, inventory = TRUE)

@@ -462,9 +462,6 @@
 /mob/living/carbon/proc/update_hud_special_store(obj/item/worn_item)
 	return
 
-/mob/living/carbon/proc/update_hud_belt_store(obj/item/worn_item)
-	return
-
 /mob/living/carbon/proc/update_hud_chest_store(obj/item/worn_item)
 	return
 

@@ -71,11 +71,9 @@
 #define ITEM_SLOT_SPEC_STORAGE (1<<22)
 /// Chest storage item slot
 #define ITEM_SLOT_CHEST_STORAGE (1<<23)
-/// Belt storage item slot
-#define ITEM_SLOT_BELT_STORAGE (1<<24)
 
 /// Total amount of slots
-#define SLOTS_AMT 24 // Keep this up to date!
+#define SLOTS_AMT 23 // Keep this up to date!
 
 ///Inventory slots that can be blacklisted by a species from being equipped into
 DEFINE_BITFIELD(no_equip_flags, list(
@@ -97,7 +95,7 @@ DEFINE_BITFIELD(no_equip_flags, list(
 /// Slots that are physically on you
 #define ITEM_SLOT_ON_BODY (ITEM_SLOT_ICLOTHING | ITEM_SLOT_OCLOTHING | ITEM_SLOT_GLOVES | ITEM_SLOT_EYES | ITEM_SLOT_EARS | \
 	ITEM_SLOT_MASK | ITEM_SLOT_HEAD | ITEM_SLOT_FEET | ITEM_SLOT_ID | ITEM_SLOT_BELT | ITEM_SLOT_BACK | ITEM_SLOT_NECK | \
-	ITEM_SLOT_ARMOR | ITEM_SLOT_SPEC_STORAGE | ITEM_SLOT_CHEST_STORAGE | ITEM_SLOT_BELT_STORAGE )
+	ITEM_SLOT_ARMOR | ITEM_SLOT_SPEC_STORAGE | ITEM_SLOT_CHEST_STORAGE )
 
 //Bit flags for the flags_inv variable, which determine when a piece of clothing hides another. IE a helmet hiding glasses.
 //Make sure to update check_obscured_slots() if you add more.

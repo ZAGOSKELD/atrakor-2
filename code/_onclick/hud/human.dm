@@ -148,7 +148,7 @@
 	inv_box.icon_state = "store_belt"
 	inv_box.icon_full = "clothes_full"
 	inv_box.screen_loc = "LEFT+0:16,SOUTH+7:16"
-	inv_box.slot_id = ITEM_SLOT_BELT_STORAGE
+	inv_box.slot_id = ITEM_SLOT_BELT
 	static_inventory += inv_box
 
 	inv_box = new /atom/movable/screen/inventory(null, src)
