@@ -78,14 +78,8 @@
 
 	var/original = user.mob.zone_selected
 	switch(keybind_signal)
-		if(COMSIG_KB_MOB_TARGETCYCLEHEAD_DOWN)
-			user.body_toggle_head()
 		if(COMSIG_KB_MOB_TARGETHEAD_DOWN)
 			user.body_head()
-		if(COMSIG_KB_MOB_TARGETEYES_DOWN)
-			user.body_eyes()
-		if(COMSIG_KB_MOB_TARGETMOUTH_DOWN)
-			user.body_mouth()
 		if(COMSIG_KB_MOB_TARGETRIGHTARM_DOWN)
 			user.body_r_arm()
 		if(COMSIG_KB_MOB_TARGETBODYCHEST_DOWN)
@@ -94,8 +88,6 @@
 			user.body_l_arm()
 		if(COMSIG_KB_MOB_TARGETRIGHTLEG_DOWN)
 			user.body_r_leg()
-		if(COMSIG_KB_MOB_TARGETBODYGROIN_DOWN)
-			user.body_groin()
 		if(COMSIG_KB_MOB_TARGETLEFTLEG_DOWN)
 			user.body_l_leg()
 		else
@@ -103,33 +95,12 @@
 			return FALSE
 	user.mob.log_manual_zone_selected_update("keybind", old_target = original)
 
-/datum/keybinding/mob/target/head_cycle
-	hotkey_keys = list("Numpad8")
-	name = "target_head_cycle"
-	full_name = "Target: Cycle Head"
-	description = "Pressing this key targets the head, and continued presses will cycle to the eyes and mouth. This will impact where you hit people, and can be used for surgery."
-	keybind_signal = COMSIG_KB_MOB_TARGETCYCLEHEAD_DOWN
-
 /datum/keybinding/mob/target/head
-	hotkey_keys = list("Unbound")
+	hotkey_keys = list("Numpad8")
 	name = "target_head"
 	full_name = "Target: Head"
 	description = "Pressing this key targets the head. This will impact where you hit people, and can be used for surgery."
 	keybind_signal = COMSIG_KB_MOB_TARGETHEAD_DOWN
-
-/datum/keybinding/mob/target/eyes
-	hotkey_keys = list("Numpad7")
-	name = "target_eyes"
-	full_name = "Target: Eyes"
-	description = "Pressing this key targets the eyes. This will impact where you hit people, and can be used for surgery."
-	keybind_signal = COMSIG_KB_MOB_TARGETEYES_DOWN
-
-/datum/keybinding/mob/target/mouth
-	hotkey_keys = list("Numpad9")
-	name = "target_mouths"
-	full_name = "Target: Mouth"
-	description = "Pressing this key targets the mouth. This will impact where you hit people, and can be used for surgery."
-	keybind_signal = COMSIG_KB_MOB_TARGETMOUTH_DOWN
 
 /datum/keybinding/mob/target/r_arm
 	hotkey_keys = list("Numpad4")
@@ -158,13 +129,6 @@
 	full_name = "Target: Right leg"
 	description = "Pressing this key targets the right leg. This will impact where you hit people, and can be used for surgery."
 	keybind_signal = COMSIG_KB_MOB_TARGETRIGHTLEG_DOWN
-
-/datum/keybinding/mob/target/body_groin
-	hotkey_keys = list("Numpad2")
-	name = "target_body_groin"
-	full_name = "Target: Groin"
-	description = "Pressing this key targets the groin. This will impact where you hit people, and can be used for surgery."
-	keybind_signal = COMSIG_KB_MOB_TARGETBODYGROIN_DOWN
 
 /datum/keybinding/mob/target/left_leg
 	hotkey_keys = list("Numpad3")
