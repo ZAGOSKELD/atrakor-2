@@ -268,7 +268,7 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
   );
 
   // Humans are always the top of the list
-  const humanIndex = species.findIndex(([species]) => species === 'human');
+  const humanIndex = species.findIndex(([species]) => species === 'tizirian');
   const swapWith = species[0];
   species[0] = species[humanIndex];
   species[humanIndex] = swapWith;
