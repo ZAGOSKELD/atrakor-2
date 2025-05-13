@@ -25,7 +25,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 
 	var/hud_shown = TRUE //Used for the HUD toggle (F12)
 	var/hud_version = HUD_STYLE_STANDARD //Current displayed version of the HUD
-	var/inventory_shown = FALSE //Equipped item inventory
+	var/inventory_shown = TRUE //Equipped item inventory
 	var/hotkey_ui_hidden = FALSE //This is to hide the buttons that can be used via hotkeys. (hotkeybuttons list of buttons)
 
 	var/atom/movable/screen/alien_plasma_display
@@ -92,6 +92,9 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	var/atom/movable/screen/healths
 	var/atom/movable/screen/stamina
 	var/atom/movable/screen/healthdoll/healthdoll
+	var/atom/movable/screen/healthchecker/healthbutton
+	var/atom/movable/screen/healthbar/healthbar
+	var/atom/movable/screen/stambar/stambar
 	var/atom/movable/screen/spacesuit
 	var/atom/movable/screen/hunger/hunger
 	// subtypes can override this to force a specific UI style
@@ -441,16 +444,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 		return
 
 /datum/hud/proc/update_ui_style(new_ui_style)
-	// do nothing if overridden by a subtype or already on that style
-	if (initial(ui_style) || ui_style == new_ui_style)
-		return
-
-	for(var/atom/item in static_inventory + toggleable_inventory + hotkeybuttons + infodisplay + always_visible_inventory + inv_slots)
-		if (item.icon == ui_style)
-			item.icon = new_ui_style
-
-	ui_style = new_ui_style
-	build_hand_slots()
+	return // nuh uh uh!
 
 /datum/hud/proc/register_reuse(atom/movable/screen/reuse)
 	asset_refs_for_reuse += WEAKREF(reuse)
@@ -493,7 +487,7 @@ GLOBAL_LIST_INIT(available_ui_styles, list(
 	for(var/i in 1 to mymob.held_items.len)
 		hand_box = new /atom/movable/screen/inventory/hand(null, src)
 		hand_box.name = mymob.get_held_index_name(i)
-		hand_box.icon = ui_style
+		hand_box.icon = 'icons/hud_atrakor/hud_x32.dmi'
 		hand_box.icon_state = "hand_[mymob.held_index_to_dir(i)]"
 		hand_box.screen_loc = ui_hand_position(i)
 		hand_box.held_index = i

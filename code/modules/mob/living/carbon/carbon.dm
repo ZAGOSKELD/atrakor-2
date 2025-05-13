@@ -120,14 +120,14 @@
 		return
 	throw_mode = THROW_MODE_DISABLED
 	if(hud_used)
-		hud_used.throw_icon.icon_state = "act_throw"
+		hud_used.throw_icon.icon_state = "throw"
 	SEND_SIGNAL(src, COMSIG_LIVING_THROW_MODE_TOGGLE, throw_mode)
 
 
 /mob/living/carbon/proc/throw_mode_on(mode = THROW_MODE_TOGGLE)
 	throw_mode = mode
 	if(hud_used)
-		hud_used.throw_icon.icon_state = "act_throw_on"
+		hud_used.throw_icon.icon_state = "throw_on"
 	SEND_SIGNAL(src, COMSIG_LIVING_THROW_MODE_TOGGLE, throw_mode)
 
 /mob/proc/throw_item(atom/target)
@@ -813,32 +813,10 @@
 		hud_used.healths.icon_state = "health6"
 
 /mob/living/carbon/update_stamina_hud(shown_stamina_loss)
-	if(!client || !hud_used?.stamina)
+	if(!client || !hud_used?.stambar)
 		return
-
-	var/stam_crit_threshold = maxHealth - crit_threshold
-
-	if(stat == DEAD)
-		hud_used.stamina.icon_state = "stamina_dead"
-	else
-
-		if(shown_stamina_loss == null)
-			shown_stamina_loss = getStaminaLoss()
-
-		if(shown_stamina_loss >= stam_crit_threshold)
-			hud_used.stamina.icon_state = "stamina_crit"
-		else if(shown_stamina_loss > maxHealth*0.8)
-			hud_used.stamina.icon_state = "stamina_5"
-		else if(shown_stamina_loss > maxHealth*0.6)
-			hud_used.stamina.icon_state = "stamina_4"
-		else if(shown_stamina_loss > maxHealth*0.4)
-			hud_used.stamina.icon_state = "stamina_3"
-		else if(shown_stamina_loss > maxHealth*0.2)
-			hud_used.stamina.icon_state = "stamina_2"
-		else if(shown_stamina_loss > 0)
-			hud_used.stamina.icon_state = "stamina_1"
-		else
-			hud_used.stamina.icon_state = "stamina_full"
+	shown_stamina_loss = getStaminaLoss()
+	hud_used.stambar.update_appearance(shown_stamina_loss)
 
 /mob/living/carbon/proc/update_spacesuit_hud_icon(cell_state = "empty")
 	hud_used?.spacesuit?.icon_state = "spacesuit_[cell_state]"

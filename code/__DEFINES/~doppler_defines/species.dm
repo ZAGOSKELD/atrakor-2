@@ -5,3 +5,7 @@
 #define SPECIES_INSECTOID "insectoid"
 #define SPECIES_HEMOPHAGE "hemophage"
 #define SPECIES_SLIMESTART "slimehybrid"
+
+#define SPECIES_TIZIRIAN "tizirian"
+#define SPECIES_TAJARAN "tajaran"
+#define SPECIES_VULPKANIN "vulpkanin"

@@ -1129,10 +1129,6 @@
 2022-10-27T05:40:14.3520354Z
 2022-10-27T05:40:14.3521354Z [1;32mPASS[0m /datum/unit_test/breath_sanity_plasmamen 0.1s
 2022-10-27T05:40:14.3522294Z ##[endgroup]
-2022-10-27T05:40:14.3742846Z ##[group]/datum/unit_test/breath_sanity_ashwalker
-2022-10-27T05:40:14.4444122Z
-2022-10-27T05:40:14.4444950Z [1;32mPASS[0m /datum/unit_test/breath_sanity_ashwalker 0.1s
-2022-10-27T05:40:14.4445682Z ##[endgroup]
 2022-10-27T05:40:14.7716503Z ##[group]/datum/unit_test/cable_powernets
 2022-10-27T05:40:14.7716741Z
 2022-10-27T05:40:14.7717211Z [1;32mPASS[0m /datum/unit_test/cable_powernets 0s

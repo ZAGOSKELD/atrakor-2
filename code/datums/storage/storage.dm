@@ -114,9 +114,9 @@
 	/// Y-pixel location of the boxes and close button
 	var/screen_pixel_y = 16
 	/// Where storage starts being rendered, x-screen_loc wise
-	var/screen_start_x = 4
+	var/screen_start_x = 3
 	/// Where storage starts being rendered, y-screen_loc wise
-	var/screen_start_y = 2
+	var/screen_start_y = 6
 
 	/// Ref to the item action that toggles collectmode.
 	VAR_PRIVATE/datum/action/item_action/storage_gather_mode/modeswitch_action

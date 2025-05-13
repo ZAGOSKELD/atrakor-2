@@ -157,8 +157,8 @@
 
 /atom/movable/screen/language_menu
 	name = "language menu"
-	icon = 'icons/hud/screen_midnight.dmi'
-	icon_state = "talk_wheel"
+	icon = 'icons/hud_atrakor/hud_buttons.dmi'
+	icon_state = "language"
 	screen_loc = ui_language_menu
 	mouse_over_pointer = MOUSE_HAND_POINTER
 
@@ -238,7 +238,7 @@
 
 /atom/movable/screen/inventory/hand
 	var/mutable_appearance/handcuff_overlay
-	var/static/mutable_appearance/blocked_overlay = mutable_appearance('icons/hud/screen_gen.dmi', "blocked")
+	var/static/mutable_appearance/blocked_overlay = mutable_appearance('icons/hud_atrakor/hud_x32.dmi', "blocked")
 	var/held_index = 0
 	interaction_flags_atom = NONE //so dragging objects into hands icon don't skip adjacency & other checks
 
@@ -387,7 +387,8 @@
 	return
 
 /atom/movable/screen/floor_changer/vertical
-	icon_state = "floor_change_v"
+	icon = 'icons/hud_atrakor/hud_x32.dmi'
+	icon_state = "up_down"
 	vertical = TRUE
 
 /atom/movable/screen/spacesuit
@@ -397,7 +398,7 @@
 
 /atom/movable/screen/mov_intent
 	name = "run/walk toggle"
-	icon = 'icons/hud/screen_midnight.dmi'
+	icon = 'icons/hud_atrakor/the_speed_is_a_lot.dmi'
 	icon_state = "running"
 	mouse_over_pointer = MOUSE_HAND_POINTER
 
@@ -422,7 +423,7 @@
 
 /atom/movable/screen/pull
 	name = "stop pulling"
-	icon = 'icons/hud/screen_midnight.dmi'
+	icon = 'icons/hud_atrakor/hud_x32.dmi'
 	icon_state = "pull"
 	base_icon_state = "pull"
 	mouse_over_pointer = MOUSE_HAND_POINTER
@@ -438,23 +439,22 @@
 
 /atom/movable/screen/resist
 	name = "resist"
-	icon = 'icons/hud/screen_midnight.dmi'
-	icon_state = "act_resist"
-	base_icon_state = "act_resist"
+	icon = 'icons/hud_atrakor/hud_buttons.dmi'
+	icon_state = "resist"
+	base_icon_state = "resist"
 	plane = HUD_PLANE
 	mouse_over_pointer = MOUSE_HAND_POINTER
 
 /atom/movable/screen/resist/Click()
-	flick("[base_icon_state]_on", src)
 	if(isliving(usr))
 		var/mob/living/L = usr
 		L.resist()
 
 /atom/movable/screen/rest
 	name = "rest"
-	icon = 'icons/hud/screen_midnight.dmi'
-	icon_state = "act_rest"
-	base_icon_state = "act_rest"
+	icon = 'icons/hud_atrakor/hud_buttons.dmi'
+	icon_state = "rest"
+	base_icon_state = "rest"
 	plane = HUD_PLANE
 	mouse_over_pointer = MOUSE_HAND_POINTER
 
@@ -472,7 +472,7 @@
 
 /atom/movable/screen/storage
 	name = "storage"
-	icon = 'icons/hud/screen_midnight.dmi'
+	icon = 'icons/hud_atrakor/hud_x32.dmi'
 	icon_state = "storage_cell"
 	plane = HUD_PLANE
 
@@ -539,8 +539,8 @@
 
 /atom/movable/screen/throw_catch
 	name = "throw/catch"
-	icon = 'icons/hud/screen_midnight.dmi'
-	icon_state = "act_throw"
+	icon = 'icons/hud_atrakor/hud_buttons.dmi'
+	icon_state = "throw"
 	mouse_over_pointer = MOUSE_HAND_POINTER
 
 /atom/movable/screen/throw_catch/Click()
@@ -550,10 +550,11 @@
 
 /atom/movable/screen/zone_sel
 	name = "damage zone"
+	icon = 'icons/hud_atrakor/target_doll.dmi'
 	icon_state = "zone_sel"
-	screen_loc = ui_zonesel
+	screen_loc = "CENTER+8:16,SOUTH+0:16"
 	mouse_over_pointer = MOUSE_HAND_POINTER
-	var/overlay_icon = 'icons/hud/screen_gen.dmi'
+	var/overlay_icon = 'icons/hud_atrakor/target_doll.dmi'
 	var/static/list/hover_overlays_cache = list()
 	var/hovering
 
@@ -597,7 +598,7 @@
 	vis_contents += overlay_object
 
 /obj/effect/overlay/zone_sel
-	icon = 'icons/hud/screen_gen.dmi'
+	icon = 'icons/hud_atrakor/target_doll.dmi'
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 128
 	anchored = TRUE
@@ -610,41 +611,22 @@
 
 /atom/movable/screen/zone_sel/proc/get_zone_at(icon_x, icon_y)
 	switch(icon_y)
-		if(1 to 9) //Legs
+		if(6 to 37) //Legs
 			switch(icon_x)
-				if(10 to 15)
+				if(4 to 32)
 					return BODY_ZONE_R_LEG
-				if(17 to 22)
+				if(33 to 61)
 					return BODY_ZONE_L_LEG
-		if(10 to 13) //Hands and groin
+		if(38 to 72) //Chest and arms to shoulders
 			switch(icon_x)
-				if(8 to 11)
+				if(4 to 22)
 					return BODY_ZONE_R_ARM
-				if(12 to 20)
-					return BODY_ZONE_PRECISE_GROIN
-				if(21 to 24)
-					return BODY_ZONE_L_ARM
-		if(14 to 22) //Chest and arms to shoulders
-			switch(icon_x)
-				if(8 to 11)
-					return BODY_ZONE_R_ARM
-				if(12 to 20)
+				if(23 to 42)
 					return BODY_ZONE_CHEST
-				if(21 to 24)
+				if(42 to 61)
 					return BODY_ZONE_L_ARM
-		if(23 to 30) //Head, but we need to check for eye or mouth
-			if(icon_x in 12 to 20)
-				switch(icon_y)
-					if(23 to 24)
-						if(icon_x in 15 to 17)
-							return BODY_ZONE_PRECISE_MOUTH
-					if(26) //Eyeline, eyes are on 15 and 17
-						if(icon_x in 14 to 18)
-							return BODY_ZONE_PRECISE_EYES
-					if(25 to 27)
-						if(icon_x in 15 to 17)
-							return BODY_ZONE_PRECISE_EYES
-				return BODY_ZONE_HEAD
+		if(73 to 91) //Head, but we need to check for eye or mouth
+			return BODY_ZONE_HEAD
 
 /atom/movable/screen/zone_sel/proc/set_selected_zone(choice, mob/user, should_log = TRUE)
 	if(user != hud?.mymob)

@@ -1022,9 +1022,6 @@
 2023-11-12T09:03:57.6356372Z ##[group]/datum/unit_test/breath/breath_sanity_plasmamen
 2023-11-12T09:03:57.6920259Z [1;32mPASS[0m /datum/unit_test/breath/breath_sanity_plasmamen 0s
 2023-11-12T09:03:57.6922126Z ##[endgroup]
-2023-11-12T09:03:57.7478880Z ##[group]/datum/unit_test/breath/breath_sanity_ashwalker
-2023-11-12T09:03:57.7793279Z [1;32mPASS[0m /datum/unit_test/breath/breath_sanity_ashwalker 0s
-2023-11-12T09:03:57.7794768Z ##[endgroup]
 2023-11-12T09:03:57.8063286Z ##[group]/datum/unit_test/burning
 2023-11-12T09:03:57.8235820Z [1;32mPASS[0m /datum/unit_test/burning 0s
 2023-11-12T09:03:57.8237580Z ##[endgroup]
@@ -1460,9 +1457,6 @@
 2023-11-12T09:04:16.3555743Z ##[group]/datum/unit_test/lungs/lungs_sanity_plasmaman
 2023-11-12T09:04:16.3893402Z [1;32mPASS[0m /datum/unit_test/lungs/lungs_sanity_plasmaman 0s
 2023-11-12T09:04:16.3896070Z ##[endgroup]
-2023-11-12T09:04:16.4363609Z ##[group]/datum/unit_test/lungs/lungs_sanity_ashwalker
-2023-11-12T09:04:16.4534765Z [1;32mPASS[0m /datum/unit_test/lungs/lungs_sanity_ashwalker 0s
-2023-11-12T09:04:16.4537484Z ##[endgroup]
 2023-11-12T09:04:16.5268598Z ##[group]/datum/unit_test/machine_disassembly
 2023-11-12T09:04:16.5331398Z [1;32mPASS[0m /datum/unit_test/machine_disassembly 0s
 2023-11-12T09:04:16.5334165Z ##[endgroup]

@@ -287,6 +287,7 @@
 #define PARRY_LAYER 8
 
 #define FOV_EFFECT_LAYER 100
+#define FULLSCREEN_HUD_LAYER 101
 
 ///--------------- FULLSCREEN RUNECHAT BUBBLES ------------
 /// Bubble for typing indicators

@@ -47,12 +47,12 @@
 #define ui_xenobiodisplay "WEST:6,CENTER:-4"
 
 //Lower center, persistent menu
-#define ui_sstore1 "CENTER-5:10,SOUTH:5"
+#define ui_sstore1 "CENTER+3,SOUTH+0:16"
 #define ui_id "CENTER-4:12,SOUTH:5"
-#define ui_belt "CENTER-3:14,SOUTH:5"
-#define ui_back "CENTER-2:14,SOUTH:5"
-#define ui_storage1 "CENTER+1:18,SOUTH:5"
-#define ui_storage2 "CENTER+2:20,SOUTH:5"
+#define ui_belt "CENTER+2,SOUTH+0:16"
+#define ui_back "LEFT+0:16,SOUTH+6:16"
+#define ui_storage1 "CENTER-3,SOUTH+0:16"
+#define ui_storage2 "CENTER-2,SOUTH+0:16"
 #define ui_combo "CENTER+4:24,SOUTH+1:7" //combo meter for martial arts
 
 //Lower right, persistent menu
@@ -88,15 +88,16 @@
 #define ui_stamina "EAST-1:28,CENTER-3:14"
 
 //Pop-up inventory
-#define ui_shoes "WEST+1:8,SOUTH:5"
-#define ui_iclothing "WEST:6,SOUTH+1:7"
-#define ui_oclothing "WEST+1:8,SOUTH+1:7"
-#define ui_gloves "WEST+2:10,SOUTH+1:7"
-#define ui_glasses "WEST:6,SOUTH+3:11"
-#define ui_mask "WEST+1:8,SOUTH+2:9"
-#define ui_ears "WEST+2:10,SOUTH+2:9"
-#define ui_neck "WEST:6,SOUTH+2:9"
-#define ui_head "WEST+1:8,SOUTH+3:11"
+#define ui_shoes "LEFT+0:16,SOUTH+0:16"
+#define ui_iclothing "LEFT+1:16,SOUTH:16"
+#define ui_armor "LEFT+1:16,SOUTH+1:16"
+#define ui_oclothing "LEFT+1:16,SOUTH+2:16"
+#define ui_gloves "LEFT+0:16,SOUTH+1:16"
+#define ui_glasses "LEFT+0:16,SOUTH+2:16"
+#define ui_mask "LEFT+2:16,SOUTH+2:16"
+#define ui_ears "LEFT+2:16,SOUTH+3:16"
+#define ui_neck "LEFT+2:16,SOUTH+1:16"
+#define ui_head "LEFT+1:16,SOUTH+3:16"
 
 //Generic living
 #define ui_living_pull "EAST-1:28,CENTER-3:15"

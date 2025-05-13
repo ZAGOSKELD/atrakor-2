@@ -99,12 +99,6 @@ SUBSYSTEM_DEF(mapping)
 	current_map = load_map_config(FORCE_MAP, FORCE_MAP_DIRECTORY)
 #else
 	current_map = load_map_config(error_if_missing = FALSE)
-	/// DOPPLER SHIFT ADDITION BEGIN
-	world.log << "Config loaded for map [current_map.map_name]"
-	if (!isnull(current_map.minetype) && current_map.minetype != "none" && current_map.minetype != "lavaland")
-		world.log << "Minetype requested: [current_map.minetype]"
-		config_mining = load_map_config(filename = "mining_configs/[current_map.minetype]", directory = MAP_DIRECTORY_MAPS, error_if_missing = TRUE)
-	/// DOPPLER SHIFT ADDITION END
 #endif
 
 /datum/controller/subsystem/mapping/Initialize()
@@ -464,29 +458,6 @@ Used by the AI doomsday and the self-destruct nuke.
 		query_round_map_name.Execute()
 		qdel(query_round_map_name)
 
-#ifndef LOWMEMORYMODE
-	/// DOPPLER SHIFT REMOVAL BEGIN
-	/*if(current_map.minetype == "lavaland")
-	if(current_map.minetype == "lavaland")
-		LoadGroup(FailedZs, "Lavaland", "map_files/Mining", "Lavaland.dmm", default_traits = ZTRAITS_LAVALAND)
-	else if (!isnull(current_map.minetype) && current_map.minetype != "none")
-		INIT_ANNOUNCE("WARNING: An unknown minetype '[current_map.minetype]' was set! This is being ignored! Update the maploader code!")*/
-	/// DOPPLER SHIFT REMOVAL BEGIN, ADDITION BEGIN
-	INIT_ANNOUNCE("Trying to setup mining Z for [current_map.map_name]: [current_map.minetype]")
-	if(!isnull(config_mining))
-		INIT_ANNOUNCE("Loading custom mining planet [config_mining.map_name] in [config_mining.map_path]/[config_mining.map_file] with expected traits [config_mining.traits]")
-		world.log << "Fallback - loading custom mining planet [config_mining.map_name] in [config_mining.map_path]/[config_mining.map_file] with expected traits [config_mining.traits]"
-		LoadGroup(FailedZs, "Mining Planet", config_mining.map_path, config_mining.map_file, config_mining.traits, ZTRAITS_CUSTOM_MINING)
-	else if(current_map.minetype == "lavaland")
-		INIT_ANNOUNCE("Loading Lavaland...")
-		world.log << "Fallback - loading Lavaland..."
-		LoadGroup(FailedZs, "Lavaland", "map_files/Mining", "Lavaland.dmm", default_traits = ZTRAITS_LAVALAND)
-	else if (!isnull(current_map.minetype) && current_map.minetype != "none")
-		INIT_ANNOUNCE("WARNING: An unknown minetype '[current_map.minetype]' was set, and we couldn't load a map json for it!  Update the maploader or check your filepath - expected to be _maps/[current_map.minetype].json")
-		world.log << "Fallback warning - an unknown minetype [current_map.minetype] was set, and we couldn't load a config for it!"
-	/// DOPPLER SHIFT ADDITION END
-#endif
-
 	if(LAZYLEN(FailedZs)) //but seriously, unless the server's filesystem is messed up this will never happen
 		var/msg = "RED ALERT! The following map files failed to load: [FailedZs[1]]"
 		if(FailedZs.len > 1)
@@ -544,10 +515,7 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 /datum/controller/subsystem/mapping/proc/preloadRuinTemplates()
 	// Still supporting bans by filename
 	var/list/banned = generateMapList("spaceruinblacklist.txt")
-	if(current_map.minetype == "lavaland")
-		banned += generateMapList("lavaruinblacklist.txt")
-	else if(current_map.blacklist_file)
-		banned += generateMapList(current_map.blacklist_file)
+	banned += generateMapList(current_map.blacklist_file)
 
 	for(var/item in sort_list(subtypesof(/datum/map_template/ruin), GLOBAL_PROC_REF(cmp_ruincost_priority)))
 		var/datum/map_template/ruin/ruin_type = item
