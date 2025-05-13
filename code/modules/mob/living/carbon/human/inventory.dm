@@ -203,6 +203,26 @@
 		if(ITEM_SLOT_BELTPACK)
 			if(!belt || !belt.atom_storage?.attempt_insert(equipping, src, override = TRUE, force = indirect_action ? STORAGE_SOFT_LOCKED : STORAGE_NOT_LOCKED))
 				not_handled = TRUE
+		if(ITEM_SLOT_ARMOR)
+			if(armor_slot)
+				return
+			armor_slot = equipping
+			update_worn_armor()
+		if(ITEM_SLOT_SPEC_STORAGE)
+			if(spec_store)
+				return
+			spec_store = equipping
+			update_worn_spec_store()
+		if(ITEM_SLOT_BELT_STORAGE)
+			if(belt_store)
+				return
+			belt_store = equipping
+			update_hud_belt_store(belt_store)
+		if(ITEM_SLOT_CHEST_STORAGE)
+			if(chest_store)
+				return
+			chest_store = equipping
+			update_hud_chest_store(chest_store)
 		else
 			to_chat(src, span_danger("You are trying to equip this item to an unsupported inventory slot. Report this to a coder!"))
 

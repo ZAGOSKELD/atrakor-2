@@ -60,8 +60,10 @@ There are several things that need to be remembered:
 		update_worn_mask()
 		update_worn_head()
 		update_worn_belt()
+		update_worn_spec_store()
 		update_worn_back()
 		update_worn_oversuit()
+		update_worn_armor()
 		update_pockets()
 		update_worn_neck()
 		update_transform()
@@ -532,6 +534,33 @@ There are several things that need to be remembered:
 	apply_overlay(SUIT_LAYER)
 	check_body_shape(BODYSHAPE_DIGITIGRADE, ITEM_SLOT_OCLOTHING)
 
+/mob/living/carbon/human/proc/update_worn_armor(update_obscured = TRUE)
+	remove_overlay(ARMOR_LAYER)
+
+	if(client && hud_used)
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_ARMOR) + 1]
+		inv.update_icon()
+
+	if(armor_slot)
+		var/obj/item/worn_item = armor_slot
+		update_hud_armor(worn_item)
+
+		if(update_obscured)
+			update_obscured_slots(worn_item.flags_inv)
+
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON))
+			return
+
+		var/icon_file = DEFAULT_SUIT_FILE
+
+		var/mutable_appearance/suit_overlay = armor_slot.build_worn_icon(default_layer = ARMOR_LAYER, default_icon_file = icon_file)
+		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
+		my_chest?.worn_suit_offset?.apply_offset(suit_overlay)
+		overlays_standing[ARMOR_LAYER] = suit_overlay
+
+	apply_overlay(ARMOR_LAYER)
+	check_body_shape(BODYSHAPE_DIGITIGRADE, ITEM_SLOT_ARMOR)
+
 /mob/living/carbon/human/update_pockets()
 	if(client && hud_used)
 		var/atom/movable/screen/inventory/inv
@@ -623,6 +652,35 @@ There are several things that need to be remembered:
 		my_chest?.worn_back_offset?.apply_offset(back_overlay)
 		overlays_standing[BACK_LAYER] = back_overlay
 	apply_overlay(BACK_LAYER)
+
+/mob/living/carbon/human/proc/update_worn_spec_store(update_obscured = TRUE)
+	remove_overlay(SPEC_STORE_LAYER)
+
+	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_SPEC_STORAGE) + 1])
+		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_SPEC_STORAGE) + 1]
+		inv.update_icon()
+
+	if(spec_store)
+		var/obj/item/worn_item = spec_store
+		var/mutable_appearance/back_overlay
+		update_hud_special_store(worn_item)
+
+		if(update_obscured)
+			update_obscured_slots(worn_item.flags_inv)
+
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON))
+			return
+
+		var/icon_file = 'icons/mob/clothing/back.dmi'
+
+		back_overlay = spec_store.build_worn_icon(default_layer = SPEC_STORE_LAYER, default_icon_file = icon_file)
+
+		if(!back_overlay)
+			return
+		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
+		my_chest?.worn_back_offset?.apply_offset(back_overlay)
+		overlays_standing[SPEC_STORE_LAYER] = back_overlay
+	apply_overlay(SPEC_STORE_LAYER)
 
 /mob/living/carbon/human/get_held_overlays()
 	var/list/hands = list()
@@ -890,6 +948,12 @@ There are several things that need to be remembered:
 		client.screen += worn_item
 	update_observer_view(worn_item,TRUE)
 
+/mob/living/carbon/human/proc/update_hud_armor(obj/item/worn_item)
+	worn_item.screen_loc = "LEFT+1:16,SOUTH+1:16"
+	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown))
+		client.screen += worn_item
+	update_observer_view(worn_item,TRUE)
+
 /mob/living/carbon/human/proc/update_hud_belt(obj/item/worn_item)
 	belt.screen_loc = ui_belt
 	if(client && hud_used?.hud_shown)
@@ -915,6 +979,24 @@ There are several things that need to be remembered:
 	if((client && hud_used) && (hud_used.inventory_shown && hud_used.hud_shown))
 		client.screen += worn_item
 	update_observer_view(worn_item,TRUE)
+
+/mob/living/carbon/human/update_hud_special_store(obj/item/worn_item)
+	worn_item.screen_loc = "LEFT+0:16,SOUTH+5:16"
+	if(client && hud_used?.hud_shown)
+		client.screen += worn_item
+	update_observer_view(worn_item, inventory = TRUE)
+
+/mob/living/carbon/human/update_hud_belt_store(obj/item/worn_item)
+	worn_item.screen_loc = "LEFT+0:16,SOUTH+7:16"
+	if(client && hud_used?.hud_shown)
+		client.screen += worn_item
+	update_observer_view(worn_item, inventory = TRUE)
+
+/mob/living/carbon/human/update_hud_chest_store(obj/item/worn_item)
+	worn_item.screen_loc = "LEFT+0:16,SOUTH+8:16"
+	if(client && hud_used?.hud_shown)
+		client.screen += worn_item
+	update_observer_view(worn_item, inventory = TRUE)
 
 //update whether our back item appears on our hud.
 /mob/living/carbon/human/update_hud_back(obj/item/worn_item)

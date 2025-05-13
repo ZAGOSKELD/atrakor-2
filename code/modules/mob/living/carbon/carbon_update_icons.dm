@@ -459,6 +459,15 @@
 /mob/living/carbon/proc/update_hud_back(obj/item/I)
 	return
 
+/mob/living/carbon/proc/update_hud_special_store(obj/item/worn_item)
+	return
+
+/mob/living/carbon/proc/update_hud_belt_store(obj/item/worn_item)
+	return
+
+/mob/living/carbon/proc/update_hud_chest_store(obj/item/worn_item)
+	return
+
 /// Overlays for the worn overlay so you can overlay while you overlay
 /// eg: ammo counters, primed grenade flashing, etc.
 /// "icon_file" is used automatically for inhands etc. to make sure it gets the right inhand file

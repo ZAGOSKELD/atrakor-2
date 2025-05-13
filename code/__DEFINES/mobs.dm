@@ -769,6 +769,8 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 #define EARS_LAYER 21
 /// Layer for neck apperal that should appear below the suit slot (like neckties)
 #define LOW_NECK_LAYER 20
+/// ARMOR LAYER UNDER SUIT
+#define ARMOR_LAYER 19.5
 /// Suit layer (armor, coats, etc.)
 #define SUIT_LAYER 19
 /// Glasses layer
@@ -779,6 +781,8 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 #define SUIT_STORE_LAYER 16
 /// Neck layer (for wearing capes and bedsheets)
 #define NECK_LAYER 15
+/// SPECIAL STORAGE LAYER
+#define SPEC_STORE_LAYER 14.5
 /// Back layer (for backpacks and equipment on your back)
 #define BACK_LAYER 14
 /// Hair layer (mess with the fro and you got to go!)
