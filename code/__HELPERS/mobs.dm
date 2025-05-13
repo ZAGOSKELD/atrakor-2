@@ -21,23 +21,17 @@
 		)))
 
 /proc/random_eye_color()
-	switch(pick(20;"brown",20;"hazel",20;"grey",15;"blue",15;"green",1;"amber",1;"albino"))
-		if("brown")
-			return COLOR_BROWNER_BROWN
-		if("hazel")
-			return "#554422"
-		if("grey")
-			return pick("#666666","#777777","#888888","#999999","#aaaaaa","#bbbbbb","#cccccc")
-		if("blue")
-			return "#3366cc"
-		if("green")
-			return "#006600"
+	switch(pick(20;"neon",20;"jade",20;"amber",20;"ourple",20;"redder"))
+		if("neon")
+			return "#c4f0c2"
+		if("jade")
+			return "#5ab9a8"
 		if("amber")
-			return "#ffcc00"
-		if("albino")
-			return "#" + pick("cc","dd","ee","ff") + pick("00","11","22","33","44","55","66","77","88","99") + pick("00","11","22","33","44","55","66","77","88","99")
-		else
-			return COLOR_BLACK
+			return "#d99f3a"
+		if("ourple")
+			return "#d99f3a"
+		if("redder")
+			return "#7d393d"
 
 /proc/random_hair_color()
 	var/static/list/natural_hair_colors = list(
