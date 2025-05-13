@@ -92,6 +92,10 @@
 	/// Any clothing accessory item
 	var/accessory = null
 
+	var/armor = null
+	var/spec_store = null
+	var/chest_store = null
+
 	/// Internals box. Will be inserted at the start of backpack_contents
 	var/box
 
@@ -203,6 +207,12 @@
 		EQUIP_OUTFIT_ITEM(back, ITEM_SLOT_BACK)
 	if(id)
 		EQUIP_OUTFIT_ITEM(id, ITEM_SLOT_ID)
+	if(armor)
+		EQUIP_OUTFIT_ITEM(armor, ITEM_SLOT_ARMOR)
+	if(chest_store)
+		EQUIP_OUTFIT_ITEM(chest_store, ITEM_SLOT_CHEST_STORAGE)
+	if(spec_store)
+		EQUIP_OUTFIT_ITEM(spec_store, ITEM_SLOT_SPEC_STORAGE)
 	if(!visuals_only && id_trim && user.wear_id)
 		var/obj/item/card/id/id_card = user.wear_id
 		if(!istype(id_card)) //If an ID wasn't found in their ID slot, it's probably something holding their ID like a wallet or PDA

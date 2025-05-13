@@ -706,6 +706,12 @@ GLOBAL_LIST_INIT(skin_tone_names, list(
 		slot_strings += "backpack"
 	if(slot_flags & ITEM_SLOT_BELTPACK)
 		slot_strings += "belt" // ?
+	if(slot_flags & ITEM_SLOT_ARMOR)
+		slot_strings += "armor"
+	if(slot_flags & ITEM_SLOT_SPEC_STORAGE)
+		slot_strings += "special storage"
+	if(slot_flags & ITEM_SLOT_CHEST_STORAGE)
+		slot_strings += "chest rig"
 	return slot_strings
 
 ///Returns the direction that the initiator and the target are facing
