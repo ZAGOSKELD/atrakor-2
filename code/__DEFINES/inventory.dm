@@ -73,7 +73,7 @@
 #define ITEM_SLOT_CHEST_STORAGE (1<<23)
 
 /// Total amount of slots
-#define SLOTS_AMT 23 // Keep this up to date!
+#define SLOTS_AMT 24 // Keep this up to date!
 
 ///Inventory slots that can be blacklisted by a species from being equipped into
 DEFINE_BITFIELD(no_equip_flags, list(

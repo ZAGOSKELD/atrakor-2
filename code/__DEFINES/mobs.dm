@@ -707,82 +707,80 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// Total number of layers for mob overlays
 /// KEEP THIS UP-TO-DATE OR SHIT WILL BREAK
 /// Also consider updating layers_to_offset
-#define TOTAL_LAYERS 36
+#define TOTAL_LAYERS 37
 /// Mutations layer - Tk headglows, cold resistance glow, etc
-#define MUTATIONS_LAYER 36
+#define MUTATIONS_LAYER 37
 /// Mutantrace features (tail when looking south) that must appear behind the body parts
-#define BODY_BEHIND_LAYER 35
+#define BODY_BEHIND_LAYER 36
 /// DOPPLER SHIFT ADDITION BEGIN
-#define BODY_BEHIND_LAYER_2 34.99
-#define BODY_BEHIND_LAYER_3 34.98
+#define BODY_BEHIND_LAYER_2 35.99
+#define BODY_BEHIND_LAYER_3 35.98
 /// DOPPLER SHIFT ADDITION END
 /// Layer for bodyparts that should appear behind every other bodypart - Mostly, legs when facing WEST or EAST
-#define BODYPARTS_LOW_LAYER 34
+#define BODYPARTS_LOW_LAYER 35
 /// Layer for most bodyparts, appears above BODYPARTS_LOW_LAYER and below BODYPARTS_HIGH_LAYER
-#define BODYPARTS_LAYER 33
+#define BODYPARTS_LAYER 34
 /// Mutantrace features (snout, body markings) that must appear above the body parts
-#define BODY_ADJ_LAYER 32
+#define BODY_ADJ_LAYER 33
 /// DOPPLER SHIFT ADDITION BEGIN
-#define BODY_ADJ_LAYER_2 31.99
-#define BODY_ADJ_LAYER_3 31.98
+#define BODY_ADJ_LAYER_2 32.99
+#define BODY_ADJ_LAYER_3 32.98
 /// DOPPLER SHIFT ADDITION END
 /// Underwear, undershirts, socks, eyes, lips(makeup)
-#define BODY_LAYER 31
+#define BODY_LAYER 32
 /// Mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
-#define FRONT_MUTATIONS_LAYER 30
+#define FRONT_MUTATIONS_LAYER 31
 /// Damage indicators (cuts and burns)
-#define DAMAGE_LAYER 29
+#define DAMAGE_LAYER 30
 /// DOPPLER SHIFT ADDITION BEGIN
 /// Just below clothing layer
-#define UNDER_UNIFORM_LAYER 28.5
+#define UNDER_UNIFORM_LAYER 29.5
 /// Bra and socks
-#define BRA_SOCKS_LAYER 28.02
+#define BRA_SOCKS_LAYER 29.02
 
 /// Underwear and undershirt
-#define UNDERWEAR_UNDERSHIRT 28.01
+#define UNDERWEAR_UNDERSHIRT 29.01
 /// DOPPLER SHIFT ADDITION END
 /// Jumpsuit clothing layer
-#define UNIFORM_LAYER 28
+#define UNIFORM_LAYER 29
 /// DOPPLER SHIFT ADDITION BEGIN
-#define BANDAGE_LAYER 27.5
+#define BANDAGE_LAYER 28.5
 /// This layer is used for things that shouldn't be over clothes, but should be over mutations
-#define BODY_FRONT_UNDER_CLOTHES_LAYER 27.009
-#define BODY_FRONT_UNDER_CLOTHES_LAYER_2 27.008
-#define BODY_FRONT_UNDER_CLOTHES_LAYER_3 27.007
+#define BODY_FRONT_UNDER_CLOTHES_LAYER 28.009
+#define BODY_FRONT_UNDER_CLOTHES_LAYER_2 28.008
+#define BODY_FRONT_UNDER_CLOTHES_LAYER_3 28.007
 /// DOPPLER SHIFT ADDITION END
 /// ID card layer
-#define ID_LAYER 27
-/// ID card layer (might be deprecated)
-#define ID_CARD_LAYER 26
+#define ID_LAYER 28
 /// Layer for bodyparts that should appear above every other bodypart - Currently only used for hands
-#define BODYPARTS_HIGH_LAYER 25
+#define BODYPARTS_HIGH_LAYER 27
 /// DOPPLER SHIFT ADDITION BEGIN - For hand markings :3c
-#define BODY_HAND_LAYER 23.99
+#define BODY_HAND_LAYER 26.99
 /// DOPPLER SHIFT ADDITION END
 /// Gloves layer
-#define GLOVES_LAYER 24
+#define GLOVES_LAYER 26
 /// Shoes layer
-#define SHOES_LAYER 23
+#define SHOES_LAYER 25
 /// Layer for masks that are worn below ears and eyes (like Balaclavas) (layers below hair, use flagsinv=HIDEHAIR as needed)
-#define LOW_FACEMASK_LAYER 22
+#define LOW_FACEMASK_LAYER 24
 /// Ears layer (Spessmen have ears? Wow)
-#define EARS_LAYER 21
+#define EARS_LAYER 23
 /// Layer for neck apperal that should appear below the suit slot (like neckties)
-#define LOW_NECK_LAYER 20
+#define LOW_NECK_LAYER 22
 /// ARMOR LAYER UNDER SUIT
-#define ARMOR_LAYER 19.5
+#define ARMOR_LAYER 21
 /// Suit layer (armor, coats, etc.)
-#define SUIT_LAYER 19
+#define SUIT_LAYER 20
 /// Glasses layer
-#define GLASSES_LAYER 18
+#define GLASSES_LAYER 19
 /// Belt layer
-#define BELT_LAYER 17 //Possible make this an overlay of something required to wear a belt?
+#define BELT_LAYER 18 //Possible make this an overlay of something required to wear a belt?
 /// Suit storage layer (tucking a gun or baton underneath your armor)
-#define SUIT_STORE_LAYER 16
+#define SUIT_STORE_LAYER 17
 /// Neck layer (for wearing capes and bedsheets)
-#define NECK_LAYER 15
+#define NECK_LAYER 16
 /// SPECIAL STORAGE LAYER
-#define SPEC_STORE_LAYER 14.5
+#define SPEC_STORE_LAYER 15
 /// Back layer (for backpacks and equipment on your back)
 #define BACK_LAYER 14
 /// Hair layer (mess with the fro and you got to go!)
@@ -842,7 +840,6 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 	"[GLOVES_LAYER]" = LOWER_BODY,
 	"[HALO_LAYER]" = UPPER_BODY, // above the head
 	"[HANDCUFF_LAYER]" = LOWER_BODY,
-	"[ID_CARD_LAYER]" = UPPER_BODY, // unused
 	"[ID_LAYER]" = UPPER_BODY,
 	"[FACEMASK_LAYER]" = UPPER_BODY,
 	"[LOW_FACEMASK_LAYER]" = UPPER_BODY,

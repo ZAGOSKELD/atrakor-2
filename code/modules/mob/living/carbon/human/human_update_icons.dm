@@ -683,7 +683,7 @@ There are several things that need to be remembered:
 	apply_overlay(SPEC_STORE_LAYER)
 
 /mob/living/carbon/human/proc/update_worn_chest_store(update_obscured = TRUE)
-	remove_overlay(SPEC_STORE_LAYER)
+	remove_overlay(BELT_LAYER)
 
 	if(client && hud_used && hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_CHEST_STORAGE) + 1])
 		var/atom/movable/screen/inventory/inv = hud_used.inv_slots[TOBITSHIFT(ITEM_SLOT_CHEST_STORAGE) + 1]
@@ -702,14 +702,14 @@ There are several things that need to be remembered:
 
 		var/icon_file = 'icons/mob/clothing/back.dmi'
 
-		back_overlay = chest_store.build_worn_icon(default_layer = SPEC_STORE_LAYER, default_icon_file = icon_file)
+		back_overlay = chest_store.build_worn_icon(default_layer = BELT_LAYER, default_icon_file = icon_file)
 
 		if(!back_overlay)
 			return
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
 		my_chest?.worn_back_offset?.apply_offset(back_overlay)
-		overlays_standing[SPEC_STORE_LAYER] = back_overlay
-	apply_overlay(SPEC_STORE_LAYER)
+		overlays_standing[BELT_LAYER] = back_overlay
+	apply_overlay(BELT_LAYER)
 
 /mob/living/carbon/human/get_held_overlays()
 	var/list/hands = list()
