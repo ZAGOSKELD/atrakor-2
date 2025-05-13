@@ -13,7 +13,7 @@
 	return initial(species.id)
 
 /datum/preference/choiced/species/create_default_value()
-	return /datum/species/human
+	return /datum/species/tizirian
 
 /datum/preference/choiced/species/create_random_value(datum/preferences/preferences)
 	return pick(get_choices())
