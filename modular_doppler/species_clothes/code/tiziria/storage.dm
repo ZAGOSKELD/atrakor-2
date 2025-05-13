@@ -44,6 +44,7 @@
 	lefthand_file = 'modular_doppler/species_clothes/icons/generic/lefthand.dmi'
 	righthand_file = 'modular_doppler/species_clothes/icons/generic/righthand.dmi'
 	inhand_icon_state = null
+	slot_flags = ITEM_SLOT_SPEC_STORAGE
 
 /obj/item/storage/backpack/lizard_tailbag/mob_can_equip(mob/living/M, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
 	if(!HAS_TRAIT(M, TRAIT_TACKLING_TAILED_DEFENDER))
