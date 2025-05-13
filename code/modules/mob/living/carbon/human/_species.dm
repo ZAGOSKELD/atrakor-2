@@ -708,25 +708,11 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				return FALSE
 			if(!isnull(H.l_store) && H.l_store != I) // no pocket swaps at all
 				return FALSE
-
-			var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_L_LEG)
-
-			if(!O || IS_ORGANIC_LIMB(O))
-				if(!disable_warning)
-					to_chat(H, span_warning("You need a jumpsuit before you can attach this [I.name]!"))
-				return FALSE
 			return TRUE
 		if(ITEM_SLOT_RPOCKET)
 			if(HAS_TRAIT(I, TRAIT_NODROP))
 				return FALSE
 			if(!isnull(H.r_store) && H.r_store != I)
-				return FALSE
-
-			var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_R_LEG)
-
-			if(!O || IS_ORGANIC_LIMB(O))
-				if(!disable_warning)
-					to_chat(H, span_warning("You need a jumpsuit before you can attach this [I.name]!"))
 				return FALSE
 			return TRUE
 		if(ITEM_SLOT_SUITSTORE)
